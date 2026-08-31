@@ -32,6 +32,25 @@ button opens is the `CONTACT_EMAIL` constant at the top of that file.
 The page title and the search-engine description are in `index.html`. Update
 both when the announcement changes.
 
+## The hero photo
+
+The full-screen background is the view from Hambledon Hill. The original
+4032x2268 photo lives in `assets-source/`, which is neither served nor bundled.
+
+`public/` holds three resized copies (900, 1600 and 2400px wide) that the page
+picks between with `srcset`, plus a 24px blurred stand-in inlined into
+`src/heroBlur.js` so something is on screen immediately.
+
+To swap the photo, drop the new original into `assets-source/` and run:
+
+```
+npm install --no-save sharp
+node assets-source/generate-hero.mjs
+```
+
+That rewrites every size and the stand-in. Update the `alt` text in
+`src/App.jsx` too, since it describes the picture.
+
 ## Deployment
 
 Hosted on Vercel, connected to this repo. Every push to `main` deploys
