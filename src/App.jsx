@@ -1,7 +1,8 @@
 import { HERO_BLUR } from './heroBlur.js'
 
-// The address the "Get in touch" button opens. Replace with the real one.
-const CONTACT_EMAIL = 'info@3okefordscan.org'
+// The address the "Get in touch" button opens. Note this is .com, not the .org
+// the site runs on: the mail for this project is on the .com domain.
+const CONTACT_EMAIL = 'julia@3okefordscan.com'
 
 export default function App() {
   return (

@@ -29,6 +29,10 @@ Output goes to `dist/`.
 All the copy lives in `src/App.jsx`. The contact address the "Get in touch"
 button opens is the `CONTACT_EMAIL` constant at the top of that file.
 
+That address is on `3okefordscan.com`, not the `.org` this site runs on. The
+`.com` domain holds the Microsoft 365 mail records; `.org` has no MX records at
+all, so anything addressed to `@3okefordscan.org` will bounce.
+
 The page title and the search-engine description are in `index.html`. Update
 both when the announcement changes.
 
