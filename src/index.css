@@ -2,6 +2,20 @@
 
 @theme {
   --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* A slow, smoothly eased drift for the scroll cue. Deliberately not
+     animate-bounce: that curve snaps at both ends and reads as dated. */
+  --animate-nudge: nudge 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(35%);
+  }
 }
 
 /* A phone held in landscape leaves very little height. "short:" compresses the

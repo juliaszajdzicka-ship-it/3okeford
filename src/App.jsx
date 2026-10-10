@@ -80,7 +80,7 @@ function Hero() {
             className="mt-10 short:mt-5 inline-flex w-fit items-center gap-3 rounded-full bg-white px-8 py-4 short:py-3 text-base font-bold text-stone-900 no-underline shadow-xl transition hover:bg-stone-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:text-lg"
           >
             See what you can do next
-            <span aria-hidden="true" className="motion-safe:animate-bounce">
+            <span aria-hidden="true" className="motion-safe:animate-nudge">
               ↓
             </span>
           </a>
