@@ -4,6 +4,10 @@
   --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
+/* A phone held in landscape leaves very little height. "short:" compresses the
+   hero at those sizes so the call to action stays above the fold. */
+@custom-variant short (@media (max-height: 640px));
+
 html {
   scroll-behavior: smooth;
 }

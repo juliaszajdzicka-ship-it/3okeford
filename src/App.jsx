@@ -30,7 +30,7 @@ const NEXT_STEPS = [
 
 function Hero() {
   return (
-    <section className="relative min-h-dvh overflow-hidden text-white">
+    <section className="relative min-h-[88dvh] overflow-hidden text-white">
       {/* Blurred stand-in, visible only for the moment before the photo paints. */}
       <div
         aria-hidden="true"
@@ -58,35 +58,36 @@ function Hero() {
         className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30"
       />
 
-      <div className="relative mx-auto flex min-h-dvh max-w-3xl flex-col px-6 py-10 sm:py-14">
+      <div className="relative mx-auto flex min-h-[88dvh] max-w-3xl flex-col px-6 py-10 short:py-5 sm:py-14">
         <header>
           <a href="/" className="text-lg font-extrabold tracking-tight text-white no-underline drop-shadow">
             3OkefordsCan
           </a>
         </header>
 
-        <div className="flex flex-1 flex-col justify-center py-12 sm:py-16">
-          <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-balance drop-shadow-md sm:text-5xl">
+        <div className="flex flex-1 flex-col justify-center py-12 short:py-4 sm:py-16">
+          <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-balance drop-shadow-md short:text-2xl sm:text-5xl short:sm:text-3xl">
             Thank you to everyone who attended
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/90 drop-shadow sm:text-xl">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/90 drop-shadow short:mt-3 short:text-base sm:text-xl short:sm:text-base">
             The 3OkefordsCan screening of the People’s Emergency Briefing at
             Child Okeford Community Centre. Here is the follow up information.
           </p>
 
           <a
             href="#next"
-            className="group mt-10 inline-flex w-fit items-center gap-2 text-base font-semibold text-white no-underline"
+            className="mt-10 short:mt-5 inline-flex w-fit items-center gap-3 rounded-full bg-white px-8 py-4 short:py-3 text-base font-bold text-stone-900 no-underline shadow-xl transition hover:bg-stone-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:text-lg"
           >
-            What you can do next
-            <span
-              aria-hidden="true"
-              className="transition-transform group-hover:translate-y-0.5"
-            >
+            See what you can do next
+            <span aria-hidden="true" className="motion-safe:animate-bounce">
               ↓
             </span>
           </a>
+
+          <p className="mt-5 text-sm text-white/75 drop-shadow short:mt-3">
+            Four things, and a code to scan.
+          </p>
         </div>
       </div>
     </section>
