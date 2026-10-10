@@ -1,6 +1,10 @@
 # 3okeford
 
-Single-page announcement site for 3 Okeford SCAN, at https://3okefordscan.org
+Single-page site for 3OkefordsCan, at https://3okefordscan.org
+
+It is the post-screening follow-up page for the People’s Emergency Briefing at
+Child Okeford Community Centre: a thank-you over the hero photo, then the
+"what you can do next" steps and the QR code through to nebriefing.org/peb.
 
 ## Stack
 
@@ -33,8 +37,28 @@ That address is on `3okefordscan.com`, not the `.org` this site runs on. The
 `.com` domain holds the Microsoft 365 mail records; `.org` has no MX records at
 all, so anything addressed to `@3okefordscan.org` will bounce.
 
+The four "what you can do next" items are the `NEXT_STEPS` array, also at the
+top of `src/App.jsx`. Add or reorder entries there and the grid follows.
+
 The page title and the search-engine description are in `index.html`. Update
 both when the announcement changes.
+
+## The QR code
+
+`public/qr-peb.svg` encodes `NEXT_STEPS_URL` from `src/App.jsx`, currently
+https://www.nebriefing.org/peb. It is generated rather than scanned in, so it
+is vector and stays sharp at any size including print.
+
+If that URL ever changes, change `NEXT_STEPS_URL` and `NEXT_STEPS_LABEL` in
+`src/App.jsx` and regenerate the code to match:
+
+```
+npm install --no-save qrcode
+node assets-source/generate-qr.mjs
+```
+
+The same URL is also a plain tappable button next to the code, because nobody
+can scan a QR on the screen they are already holding.
 
 ## The hero photo
 

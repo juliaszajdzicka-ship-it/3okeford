@@ -4,9 +4,33 @@ import { HERO_BLUR } from './heroBlur.js'
 // the site runs on: the mail for this project is on the .com domain.
 const CONTACT_EMAIL = 'julia@3okefordscan.com'
 
-export default function App() {
+// Everything the QR code points at. Kept here so the link, the printed URL and
+// the regenerated QR can never drift apart.
+const NEXT_STEPS_URL = 'https://www.nebriefing.org/peb'
+const NEXT_STEPS_LABEL = 'www.nebriefing.org/peb'
+
+const NEXT_STEPS = [
+  {
+    title: 'Support the Parliamentary Call',
+    body: 'Guidance on encouraging your MP to support a televised national briefing.',
+  },
+  {
+    title: 'Help bring the film to more communities',
+    body: 'Find out how to host a screening in your area, workplace or organisation.',
+  },
+  {
+    title: 'Share your response',
+    body: 'Complete the University of Bath questionnaires before and after the film to help build understanding of how people respond to this information.',
+  },
+  {
+    title: 'Stay connected',
+    body: 'Receive updates from the National Emergency Briefing and explore further practical next steps.',
+  },
+]
+
+function Hero() {
   return (
-    <div className="relative min-h-dvh overflow-hidden font-sans text-white antialiased">
+    <section className="relative min-h-dvh overflow-hidden text-white">
       {/* Blurred stand-in, visible only for the moment before the photo paints. */}
       <div
         aria-hidden="true"
@@ -31,67 +55,115 @@ export default function App() {
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/25"
+        className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30"
       />
 
       <div className="relative mx-auto flex min-h-dvh max-w-3xl flex-col px-6 py-10 sm:py-14">
         <header>
-          <a href="/" className="inline-flex items-baseline gap-2 no-underline">
-            <span className="text-lg font-extrabold tracking-tight text-white drop-shadow">
-              3 Okeford
-            </span>
-            <span className="text-lg font-light tracking-[0.2em] text-white/70">
-              SCAN
-            </span>
+          <a href="/" className="text-lg font-extrabold tracking-tight text-white no-underline drop-shadow">
+            3OkefordsCan
           </a>
         </header>
 
-        <main className="flex flex-1 flex-col justify-center py-12 sm:py-16">
-          <p className="mb-5 inline-flex w-fit items-center rounded-full border border-white/25 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white backdrop-blur-sm">
-            Date change
-          </p>
-
+        <div className="flex flex-1 flex-col justify-center py-12 sm:py-16">
           <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-balance drop-shadow-md sm:text-5xl">
-            The screening of Peoples Emergency Briefing has moved
+            Thank you to everyone who attended
           </h1>
 
-          <dl className="mt-9 grid gap-px overflow-hidden rounded-2xl border border-white/20 bg-white/15 shadow-lg backdrop-blur-md sm:grid-cols-2">
-            <div className="px-6 py-6 sm:border-r sm:border-white/20">
-              <dt className="text-xs font-semibold uppercase tracking-widest text-white/70">
-                New date and time
-              </dt>
-              <dd className="mt-2 text-xl font-bold sm:text-2xl">
-                2.30pm, 10 October 2026
-              </dd>
-            </div>
-            <div className="border-t border-white/20 px-6 py-6 sm:border-t-0">
-              <dt className="text-xs font-semibold uppercase tracking-widest text-white/70">
-                Venue
-              </dt>
-              <dd className="mt-2 text-xl font-bold sm:text-2xl">
-                Child Okeford Community Centre
-              </dd>
-            </div>
-          </dl>
-
-          <p className="mt-8 text-lg text-white/85 drop-shadow">
-            More details to follow.
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/90 drop-shadow sm:text-xl">
+            The 3OkefordsCan screening of the People’s Emergency Briefing at
+            Child Okeford Community Centre. Here is the follow up information.
           </p>
 
-          <div className="mt-9">
-            <a
-              href={`mailto:${CONTACT_EMAIL}`}
-              className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-base font-semibold text-stone-900 no-underline shadow-lg transition hover:bg-stone-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          <a
+            href="#next"
+            className="group mt-10 inline-flex w-fit items-center gap-2 text-base font-semibold text-white no-underline"
+          >
+            What you can do next
+            <span
+              aria-hidden="true"
+              className="transition-transform group-hover:translate-y-0.5"
             >
-              Get in touch
+              ↓
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function NextSteps() {
+  return (
+    <section id="next" className="scroll-mt-4 bg-stone-50 text-stone-900">
+      <div className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
+        <h2 className="text-2xl font-extrabold tracking-tight sm:text-4xl">
+          What you can do next
+        </h2>
+
+        <div className="mt-10 rounded-2xl border border-stone-200 bg-white p-6 shadow-sm sm:flex sm:items-center sm:gap-8 sm:p-8">
+          <img
+            src="/qr-peb.svg"
+            alt={`QR code linking to ${NEXT_STEPS_LABEL}`}
+            width="176"
+            height="176"
+            className="mx-auto h-44 w-44 shrink-0 sm:mx-0"
+          />
+          <div className="mt-6 text-center sm:mt-0 sm:text-left">
+            <p className="text-lg font-semibold">
+              Open your camera and point it at the QR code to begin.
+            </p>
+            <p className="mt-2 text-stone-600">
+              Already reading this on your phone? Just tap the button.
+            </p>
+            <a
+              href={NEXT_STEPS_URL}
+              className="mt-5 inline-flex items-center justify-center rounded-full bg-teal-800 px-6 py-3 text-base font-semibold text-white no-underline shadow-sm transition hover:bg-teal-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-800"
+            >
+              {NEXT_STEPS_LABEL}
             </a>
           </div>
-        </main>
+        </div>
 
-        <footer className="border-t border-white/20 pt-6 text-sm text-white/70">
-          3 Okeford SCAN
-        </footer>
+        <ul className="mt-10 grid gap-5 sm:grid-cols-2">
+          {NEXT_STEPS.map((step) => (
+            <li
+              key={step.title}
+              className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm"
+            >
+              <h3 className="text-lg font-bold tracking-tight">{step.title}</h3>
+              <p className="mt-2 leading-relaxed text-stone-600">{step.body}</p>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-14 border-t border-stone-200 pt-10">
+          <p className="text-lg text-stone-600">
+            Any questions about the screening?
+          </p>
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className="mt-5 inline-flex items-center justify-center rounded-full bg-stone-900 px-7 py-3.5 text-base font-semibold text-white no-underline shadow-sm transition hover:bg-stone-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
+          >
+            Get in touch
+          </a>
+        </div>
       </div>
+
+      <footer className="border-t border-stone-200">
+        <div className="mx-auto max-w-3xl px-6 py-6 text-sm text-stone-500">
+          3OkefordsCan
+        </div>
+      </footer>
+    </section>
+  )
+}
+
+export default function App() {
+  return (
+    <div className="font-sans antialiased">
+      <Hero />
+      <NextSteps />
     </div>
   )
 }
